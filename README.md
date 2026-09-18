@@ -1,11 +1,12 @@
-# DaT Parkinson's Challenge — 53rd place
+# DaT Parkinson's Challenge — 53rd of 378
 
 My solution for the [DrivenData DaT Parkinson's Challenge](https://www.drivendata.org/competitions/311/dat-parkinsons-challenge/):
 predict, from a 3D DaT SPECT brain scan, the probability that it is pathological rather
 than normal. Scored by log loss.
 
-**Final: 53rd, private log loss 0.3008, AUROC 0.9410** (best public 0.2691, 4 submissions).
-For reference, 1st place scored 0.2154 and 3rd 0.2286.
+**Final: 53rd of 378 ranked participants — private log loss 0.3008, AUROC 0.9410**
+(best public 0.2691, from 4 submissions). Top 14%. For reference, 1st place scored
+0.2154 and 3rd 0.2286.
 
 Two constraints shaped everything below. All training ran **on 8 CPU cores** — no GPU,
 no cloud — which came to roughly 100 hours of compute and about one experiment per
