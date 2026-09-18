@@ -74,16 +74,22 @@ clinical features 0.500 → physical resampling 0.367 → stacking 0.288 → 0.2
 | test-time augmentation | −0.0075 | −0.0003 |
 | head-centred crop (bundled with 3 other changes) | −0.0070 | −0.0165 |
 
-The pattern in the last three rows is the most useful thing I take away from this
-competition. The two changes that **refined a working model** delivered 12% and 4% of
-what they measured. The one that **fixed wrong input data** delivered more than it
-measured, because part of its benefit was invisible to internal validation: it made the
-model less dependent on which scanner produced the image, and in random cross-validation
-the same scanners are always present on both sides of the split.
+The last three rows are what I take away from this competition, with one caveat stated
+up front: the third is a bundle of four changes, so I cannot attribute its gain to any
+one of them. What is measured is that two changes which **refined a working model**
+delivered 12% and 4% of what cross-validation promised, while a bundle containing a
+**data-correctness fix** delivered more.
 
-Rough heuristic: if a change only lowers your cross-validated score, discount it
-heavily. If it also narrows the gap between random-fold and grouped-fold validation,
-take it seriously.
+The proposed explanation — and it is an explanation, not a measurement — is that
+internal validation cannot see the benefit of reducing scanner dependence, because in
+random cross-validation the same scanners always appear on both sides of the split.
+Consistent with that, the gap between out-of-fold and leaderboard narrowed from +0.036
+to +0.026 with that submission, and its grouped-fold score improved as well. Three
+observations, one of them bundled, are not enough to make this a rule.
+
+The working heuristic I would use next time: if a change only lowers your
+cross-validated score, discount it heavily; if it also narrows the gap between
+random-fold and grouped-fold validation, take it more seriously.
 
 ## What didn't
 
