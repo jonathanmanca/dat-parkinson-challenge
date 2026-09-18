@@ -26,11 +26,11 @@ NIFTI = os.path.join(RADICE, "data", "niftis")
 FORMATO = os.path.join(RADICE, "data", "submission_format.csv")
 USCITA = os.path.join(RADICE, "submission.csv")
 
-# Logging anything about the hidden test set is forbidden and the platform warns that it
-# can lead to disqualification. An early submission of ours tripped that filter by
-# printing the number of cases and array shapes. So output is split in two: `fase` emits
-# fixed strings and values that come from our own configuration, never from the data,
-# while `diag` prints anything data-dependent and only runs locally with DAT_DEBUG=1.
+# Logging anything about the hidden test set is forbidden, and that includes innocuous
+# things like how many cases there are or the shape of an array. Output is therefore
+# split in two: `fase` emits fixed strings and values that come from our own
+# configuration, never from the data, while `diag` prints anything data-dependent and
+# only runs locally with DAT_DEBUG=1.
 DIAGNOSTICA = os.environ.get("DAT_DEBUG") == "1"
 
 

@@ -10,11 +10,12 @@ than normal. Scored by log loss.
 
 Two constraints shaped everything below. All training ran **on 8 CPU cores** — no GPU,
 no cloud — which came to roughly 100 hours of compute and about one experiment per
-night. And I **never looked at a single scan**: the rules forbid sending competition
-data to third-party services, and I worked with an AI assistant throughout, so the
-images stayed in a folder neither of us ever opened. Every check in this repository
-reports aggregate statistics only. That constraint turned out to matter more than the
-missing GPU, and there is a section below on why.
+night. And I **never looked at a single scan**. The rules forbid sending competition
+data to third-party services, so rather than police which tool might touch what, I
+developed entirely against synthetic volumes and left the real ones in a folder I never
+opened. Every check in this repository reports aggregate statistics only. That
+constraint turned out to matter more than the missing GPU, and there is a section below
+on why.
 
 ---
 
