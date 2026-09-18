@@ -10,12 +10,26 @@ than normal. Scored by log loss.
 
 Two constraints shaped everything below. All training ran **on 8 CPU cores** — no GPU,
 no cloud — which came to roughly 100 hours of compute and about one experiment per
-night. And I **never looked at a single scan**. The rules forbid sending competition
-data to third-party services, so rather than police which tool might touch what, I
-developed entirely against synthetic volumes and left the real ones in a folder I never
-opened. Every check in this repository reports aggregate statistics only. That
-constraint turned out to matter more than the missing GPU, and there is a section below
-on why.
+night. And I **never looked at a single scan**, for the reason in the next section.
+That second constraint turned out to matter more than the missing GPU.
+
+## On AI assistance
+
+The code here was written with the help of an AI assistant, and the competition rules
+name AI chat tools explicitly among the third-party services that competition data must
+not be sent to. Rather than decide case by case which file was safe to open, I made the
+constraint structural: the whole pipeline was developed and debugged against synthetic
+volumes, the real scans were never opened — by me or by any tool — and every diagnostic
+in `research/` was written to answer its question with aggregates alone. Group averages,
+distributions, log loss. That is why those scripts look the way they do.
+
+It is also why the preprocessing defect described below took two months to surface. The
+thirty-second version of that check is to open three scans in a viewer and see the head
+against the edge of the frame. That was not available, so it had to be found by
+measuring geometry through summary statistics instead.
+
+The discipline was stricter than the rule required, and it cost something real: no
+Colab, no rented GPU, and a defect that a glance would have caught.
 
 ---
 
