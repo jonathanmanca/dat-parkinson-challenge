@@ -223,11 +223,19 @@ prediction path. Predictions on random noise would be meaningless anyway.
 
 ## Data and weights
 
-No scan data, no labels, and no trained weights are published here. The competition
-prohibits redistributing the data, and the model weights are derived from it closely
-enough that I would rather not test where the line is. Code only, which the rules
-permit explicitly. The organisers have said the dataset will be released as open data,
-so the pipeline can be retrained from scratch.
+Code, configuration and whole-dataset aggregate statistics only.
+
+No scans, no labels and no trained weights are published here. The competition
+prohibits redistributing the data, and the weights are derived from it closely enough
+that I would rather not test where the line falls. Publishing the code is explicitly
+permitted. The organisers have said the dataset will be released as open data, so the
+pipeline can be retrained from scratch.
+
+The numbers quoted throughout this README — voxel spacings, fields of view, group
+sizes, how much signal a crop retains — are aggregates over the whole dataset or over
+scanner groups. Nothing here describes an individual patient, and no voxel value or
+label is reproduced. The same holds for every diagnostic script in `research/`: they
+were written that way because the scans were never opened in the first place.
 
 ## Licence
 
