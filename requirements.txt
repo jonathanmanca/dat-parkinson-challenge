@@ -1,0 +1,10 @@
+# Pinned to the environment that was used to train the submitted models and to test
+# the container locally. It mirrors the competition runtime (Python 3.12, CPU only).
+numpy==2.2.6
+pandas==3.0.3
+scipy==1.15.3
+scikit-learn==1.8.0
+nibabel==5.4.2
+joblib==1.5.3
+lightgbm==4.6.0
+torch==2.12.1

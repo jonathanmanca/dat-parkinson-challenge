@@ -1,0 +1,40 @@
+# Competition data: never commit. Redistributing it breaks the rules, and anything
+# that reaches git history cannot be removed by deleting the file later.
+data_privata/
+data/
+*.nii
+*.nii.gz
+labels.csv
+train_labels.csv
+
+# Cached arrays built from the scans: these contain patient volumes and labels.
+*.npz
+
+# Trained weights: derived from the competition data, deliberately not published.
+*.pt
+*.pth
+*.joblib
+*.pkl
+
+# Submission archives (they bundle the weights)
+*.zip
+
+# Local runs
+*.log
+log_*.txt
+submission.csv
+*.vecchio
+
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+env/
+.DS_Store
+.vscode/
+.idea/
+
+# Synthetic volumes are generated on demand by research/genera_dati_finti.py rather
+# than committed: they are incompressible random noise and would be 41 MB against
+# 150 KB of actual code.
+synthetic_data/
