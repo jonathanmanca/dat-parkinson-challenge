@@ -8,7 +8,7 @@ The tag is explicit and required. An earlier version globbed for a pattern that 
 since been renamed, which would have silently averaged two seeds instead of three and
 overwritten the output file with the wrong thing.
 
-Usage: python media_semi.py <tag> [output.npz]
+Usage: python average_seeds.py <tag> [output.npz]
 """
 import sys
 import glob

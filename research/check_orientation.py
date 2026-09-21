@@ -13,7 +13,7 @@ It was wrong: all 1362 scans are RAS. Ten minutes to rule out, instead of three 
 building around it. The output is still useful for what it says about field of view and
 about how many distinct scanner signatures the dataset contains.
 
-Usage: python controlla_orientamento.py [folder]
+Usage: python check_orientation.py [folder]
 """
 import sys
 from collections import Counter

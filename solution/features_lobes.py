@@ -5,7 +5,7 @@ the posterior putamen loses signal the shape collapses towards a dot. A profile 
 an axis captures that gradient without needing to know which axis is which.
 """
 import numpy as np
-from feature_cliniche3 import trova_hotspot, ritaglia
+from features_aligned import trova_hotspot, ritaglia
 
 
 def profilo(r, asse, bin=8):

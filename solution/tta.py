@@ -39,7 +39,7 @@ def predici_tta(rete, x, lotto=64, combinazioni=None):
 
 
 if __name__ == "__main__":
-    from modello_crop2 import CNNCrop2
+    from cnn import CNNCrop2
     print(f"views: {len(COMBINAZIONI)} -> {COMBINAZIONI}")
     torch.manual_seed(0)
     rete = CNNCrop2(doppio_pool=True, residuo=True, canali=(24, 48, 96, 96)).eval()

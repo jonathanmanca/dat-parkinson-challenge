@@ -1,7 +1,7 @@
 """Build submission.zip, with the checks that matter run before anything is written.
 
 The file list is not maintained by hand. Modules are discovered by walking the imports
-of main.py, and model files are derived from config_submission.py — the same file
+of main.py, and model files are derived from config.py — the same file
 main.py reads — so the package cannot drift out of step with the code. When a new
 dependency was added late in the competition it was picked up automatically.
 
@@ -11,8 +11,8 @@ meta-model equals ORDINE, which is the one mismatch that would produce a submiss
 that runs perfectly and predicts nonsense. The previous archive is kept as a backup,
 and the finished zip is reopened and verified to be flat with main.py at the root.
 
-Usage: python fai_submission.py             build it
-       python fai_submission.py --controlla check only, write nothing
+Usage: python build_submission.py             build it
+       python build_submission.py --controlla check only, write nothing
 """
 import ast
 import os
@@ -21,8 +21,8 @@ import shutil
 import zipfile
 import joblib
 import torch
-from modello_crop2 import CNNCrop2
-from config_submission import RAMI, ORDINE
+from cnn import CNNCrop2
+from config import RAMI, ORDINE
 
 SOLO_CONTROLLO = "--controlla" in sys.argv
 USCITA, INGRESSO = "submission.zip", "main.py"

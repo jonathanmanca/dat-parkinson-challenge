@@ -1,15 +1,15 @@
 # DaT Parkinson's Challenge — 53rd of 378
 
 Predict, from a 3D DaT SPECT brain scan, the probability that it is pathological rather
-than normal. [DrivenData competition 311](https://www.drivendata.org/competitions/311/dat-parkinsons-challenge/),
-scored by log loss, 1362 training scans from 10 French hospitals.
+than normal. Run by [DrivenData](https://www.drivendata.org/competitions/311/dat-parkinsons-challenge/)
+and scored by log loss, on 1362 training scans from 10 French hospitals.
 
 | | |
 |---|---|
 | **Final rank** | **53 / 378** ranked participants (top 14%) |
 | **Private log loss** | **0.3008** &nbsp;·&nbsp; AUROC 0.9410 |
 | Best public | 0.2691, from 4 submissions |
-| 1st / 3rd place | 0.2154 / 0.2286 |
+| Winner / 3rd place (private) | 0.2532 / 0.2708 |
 | Baseline (constant prediction) | 0.688 |
 | Hardware | 8 CPU cores, ~100 h of compute, no GPU, no cloud |
 
@@ -67,7 +67,7 @@ signal survives each step, and write them in week one. A data defect does not on
 its own margin, it silently corrupts every architecture decision made downstream of it,
 and all of mine were made on top of this one.
 
-*See [`research/controlla_ritaglio.py`](research/controlla_ritaglio.py).*
+*See [`research/check_crop_window.py`](research/check_crop_window.py).*
 
 ### 2. Refinements transferred at ~10%; a correctness fix did not
 
@@ -109,7 +109,7 @@ predict the label (AUROC 0.53), so this is covariate shift in the features, not 
 leakage. The competition test set evidently came from the same hospitals, or the
 leaderboard score would have looked like the right-hand column.
 
-*See [`research/gruppi_scanner.py`](research/gruppi_scanner.py).*
+*See [`research/scanner_groups.py`](research/scanner_groups.py).*
 
 ---
 
@@ -230,9 +230,12 @@ I cannot say which change earned it.
 inflating every CNN result by 0.010 — larger than most of the differences being chased.
 The fix is snapshot averaging: the mean of the last 15 epochs' predictions, no selection.
 
-**Public and private leaderboards differ.** 0.2691 public, 0.3008 private. With four
-submissions there is no room to overfit a public split, so this is mostly the two
-subsets not being equally hard.
+**The public leaderboard was not the leaderboard.** 0.2691 public, 0.3008 private — and
+the reshuffle was general, not personal: the team leading the public board at 0.2154
+does not appear in the private top three, which starts at 0.2532. With four submissions
+there is no room to overfit a public split, so what this mostly measures is that the two
+subsets were not equally hard, and that reading much into a public delta was a mistake
+everyone could make.
 
 **Where the loss lives.** 100 of 1362 cases carry half the total log loss, and the 246
 cases the model is least sure about carry 44% of it. On the remaining 1262 it is already
@@ -279,20 +282,20 @@ submitted predictions bit for bit.
 repository root with that directory on the path:
 
 ```bash
-PYTHONPATH=solution python research/controlla_ritaglio.py 20
+PYTHONPATH=solution python research/check_crop_window.py 20
 ```
 
 Worth reading first, in order:
 
 | script | what it shows |
 |---|---|
-| [`controlla_orientamento.py`](research/controlla_orientamento.py) | what the dataset actually looks like, from headers alone |
-| [`gruppi_scanner.py`](research/gruppi_scanner.py) | finding #3: random folds versus grouped folds |
-| [`controlla_ritaglio.py`](research/controlla_ritaglio.py) | finding #1: how the crop defect was found and measured |
-| [`confronta_stack.py`](research/confronta_stack.py) | like-for-like comparison of the last change |
-| [`scegli_meta_C.py`](research/scegli_meta_C.py) | choosing regularisation on two validation schemes |
-| [`train_crop2.py`](research/train_crop2.py) | snapshot averaging, and why the fold networks are kept |
-| [`fai_submission.py`](research/fai_submission.py) | the checks that run before an archive is written |
+| [`check_orientation.py`](research/check_orientation.py) | what the dataset actually looks like, from headers alone |
+| [`scanner_groups.py`](research/scanner_groups.py) | finding #3: random folds versus grouped folds |
+| [`check_crop_window.py`](research/check_crop_window.py) | finding #1: how the crop defect was found and measured |
+| [`compare_stack.py`](research/compare_stack.py) | like-for-like comparison of the last change |
+| [`choose_meta_regularisation.py`](research/choose_meta_regularisation.py) | choosing regularisation on two validation schemes |
+| [`train_cnn.py`](research/train_cnn.py) | snapshot averaging, and why the fold networks are kept |
+| [`build_submission.py`](research/build_submission.py) | the checks that run before an archive is written |
 
 Identifiers and some inline notes are in Italian, the language the project was written in.
 
@@ -305,7 +308,7 @@ code:
 
 ```bash
 pip install -r requirements.txt
-python research/genera_dati_finti.py          # 12 NIfTI volumes + a labels.csv
+python research/make_synthetic_data.py          # 12 NIfTI volumes + a labels.csv
 mkdir -p run/data && cp -r synthetic_data run/data/niftis
 CODE_EXEC=$(pwd)/run DAT_DEBUG=1 python solution/main.py
 ```
@@ -335,3 +338,11 @@ were never opened in the first place.
 ## Licence
 
 MIT — see [LICENSE](LICENSE).
+
+---
+
+**Jonathan Manca**
+
+Two months, one GPU short, and a preprocessing bug found in week nine. If you are
+working on DaT SPECT or on multi-centre medical imaging generally, findings #1 and #3
+are the parts worth your time.

@@ -15,7 +15,7 @@ aggregate numbers.
 
 Writes gruppi.npz with a group id per patient, used by the other analysis scripts.
 
-Usage: python gruppi_scanner.py [folder]
+Usage: python scanner_groups.py [folder]
 """
 import os
 import sys

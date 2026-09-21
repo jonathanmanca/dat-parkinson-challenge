@@ -1,6 +1,6 @@
 """Single source of truth for the submitted configuration.
 
-`addestra_finale.py` (training) and `main.py` (inference) both read from here, so the
+`train_final_models.py` (training) and `main.py` (inference) both read from here, so the
 two can never disagree about which models exist, in what order, or on which inputs.
 That ordering matters: the meta-model is a logistic regression over branch logits, and
 feeding it the columns in a different order would produce a submission that runs

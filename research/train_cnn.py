@@ -16,7 +16,7 @@ are the networks that produced the out-of-fold predictions, so using them at inf
 keeps the meta-model on the scale it was fitted on, instead of retraining on all data
 and handing it sharper logits than it has ever seen.
 
-Usage: python train_crop2.py <epochs> <folds> <seed> <crop_file> <tag> [options]
+Usage: python train_cnn.py <epochs> <folds> <seed> <crop_file> <tag> [options]
 Options: group | se | res | pool2 | mix | big | xl | aug_forte | aug_extra | salva
 """
 import os
@@ -26,7 +26,7 @@ import torch
 from torch.utils.data import Dataset, DataLoader
 from sklearn.model_selection import StratifiedKFold
 from sklearn.metrics import log_loss
-from modello_crop2 import CNNCrop2
+from cnn import CNNCrop2
 from augment import aumenta
 
 EPOCHE = int(sys.argv[1]) if len(sys.argv) > 1 else 100

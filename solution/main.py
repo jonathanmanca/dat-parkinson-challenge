@@ -12,14 +12,14 @@ import pandas as pd
 import joblib
 import torch
 from joblib import Parallel, delayed
-from preprocess_mm import carica_volume_mm
-from feature_cliniche2 import feature_volume
-from feature_cliniche3 import feature_allineate, trova_hotspot
-from feature_cliniche4 import feature_lobi
-from feature_cliniche6 import feature_v6
-from modello_crop2 import CNNCrop2
+from preprocess import carica_volume_mm
+from features_volume import feature_volume
+from features_aligned import feature_allineate, trova_hotspot
+from features_lobes import feature_lobi
+from features_clinical import feature_v6
+from cnn import CNNCrop2
 from tta import predici_tta
-from config_submission import RAMI, ORDINE, SCALE_FEAT, CLIP
+from config import RAMI, ORDINE, SCALE_FEAT, CLIP
 
 RADICE = os.environ.get("CODE_EXEC", "/code_execution")
 NIFTI = os.path.join(RADICE, "data", "niftis")

@@ -16,7 +16,7 @@ import numpy as np
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import StratifiedKFold, StratifiedGroupKFold
 from sklearn.metrics import log_loss, roc_auc_score
-from config_submission import RAMI, ORDINE, META_C, CLIP
+from config import RAMI, ORDINE, META_C, CLIP
 
 g = np.load("gruppi.npz")["g"]
 FEAT = [n for n in ORDINE if RAMI[n]["tipo"] == "feat"]

@@ -15,15 +15,15 @@ the edge. After centring on the head: 95.3%/0% and 97.7%/0%. About 530 of 1362 p
 had been getting a crop taken in the wrong place, and no metric had ever pointed at it.
 
 Prints group averages only, never anything patient-level.
-Usage: python controlla_ritaglio.py [patients_per_group]
+Usage: python check_crop_window.py [patients_per_group]
 """
 import sys
 import numpy as np
 import pandas as pd
 import nibabel as nib
 from scipy.ndimage import zoom, center_of_mass
-from feature_cliniche3 import trova_hotspot
-from preprocess_mm import centro_testa
+from features_aligned import trova_hotspot
+from preprocess import centro_testa
 
 CARTELLA, MM, LATO, CROP = "data_privata", 2.0, 112, 48
 N = int(sys.argv[1]) if len(sys.argv) > 1 else 20

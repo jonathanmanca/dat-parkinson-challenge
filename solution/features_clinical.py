@@ -6,7 +6,7 @@ against surrounding tissue, and the sub-regions follow the caudate-to-putamen ax
 along which the posterior putamen is the first part to lose uptake.
 """
 import numpy as np
-from feature_cliniche3 import trova_hotspot, ritaglia
+from features_aligned import trova_hotspot, ritaglia
 
 
 def fondo_cerebrale(v):

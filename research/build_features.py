@@ -8,16 +8,16 @@ columns are what the linear branches use.
 This is the slow step — a couple of hours for 1362 scans — and the reason the features
 are cached rather than recomputed.
 
-Usage: python prepara_feat6.py <mm> <side>
+Usage: python build_features.py <mm> <side>
 """
 import sys
 import numpy as np
 import pandas as pd
-from feature_cliniche2 import feature_volume
-from feature_cliniche3 import feature_allineate
-from feature_cliniche4 import feature_lobi
-from feature_cliniche6 import feature_v6
-from preprocess_mm import carica_volume_mm
+from features_volume import feature_volume
+from features_aligned import feature_allineate
+from features_lobes import feature_lobi
+from features_clinical import feature_v6
+from preprocess import carica_volume_mm
 
 MM = float(sys.argv[1]) if len(sys.argv) > 1 else 1.5
 LATO = int(sys.argv[2]) if len(sys.argv) > 2 else 152

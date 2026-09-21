@@ -8,15 +8,15 @@ sharper logits than the meta has ever seen, and it costs another full training r
 Every file is verified against the configured architecture before anything is copied,
 and the previous weights are kept with a .vecchio suffix.
 
-Usage: python usa_fold_come_finali.py <TAG> [seed]
+Usage: python promote_fold_networks.py <TAG> [seed]
 """
 import os
 import sys
 import glob
 import shutil
 import torch
-from modello_crop2 import CNNCrop2
-from config_submission import RAMI
+from cnn import CNNCrop2
+from config import RAMI
 
 TAG = sys.argv[1] if len(sys.argv) > 1 else "48max"
 SEME = sys.argv[2] if len(sys.argv) > 2 else "*"
@@ -25,7 +25,7 @@ r = RAMI["cnnA"]
 file = sorted(glob.glob(f"fold_{TAG}_s{SEME}_f*.pt"))
 print(f"found {len(file)} networks: {file}")
 if len(file) != len(r['semi']):
-    sys.exit(f"STOP: config_submission expects {len(r['semi'])} networks (seeds {r['semi']}), "
+    sys.exit(f"STOP: config expects {len(r['semi'])} networks (seeds {r['semi']}), "
              f"found {len(file)}")
 
 for f in file:                                             # check all of them before copying any

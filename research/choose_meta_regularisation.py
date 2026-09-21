@@ -13,7 +13,7 @@ import numpy as np
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import StratifiedKFold, StratifiedGroupKFold
 from sklearn.metrics import log_loss
-from config_submission import RAMI, ORDINE, CLIP
+from config import RAMI, ORDINE, CLIP
 
 g = np.load("gruppi.npz")["g"]
 P, y = [], None

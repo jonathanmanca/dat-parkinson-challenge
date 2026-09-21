@@ -3,15 +3,15 @@
 Calls exactly the same `ritaglia_striato` that inference uses, so training and
 prediction cannot drift apart — they used to be two separate copies of the same code.
 
-Usage: python prepara_crop.py <mm> <crop> <side> [folder]
+Usage: python build_crops.py <mm> <crop> <side> [folder]
 """
 import sys
 import numpy as np
 import pandas as pd
-from preprocess_mm import carica_volume_mm, ritaglia_striato
+from preprocess import carica_volume_mm, ritaglia_striato
 
 if len(sys.argv) > 5:                                  # refuse rather than ignore a typo
-    sys.exit("usage: python prepara_crop.py <mm> <crop> <side> [folder]")
+    sys.exit("usage: python build_crops.py <mm> <crop> <side> [folder]")
 MM = float(sys.argv[1]) if len(sys.argv) > 1 else 2.0
 CROP = int(sys.argv[2]) if len(sys.argv) > 2 else 32
 LATO = int(sys.argv[3]) if len(sys.argv) > 3 else 112

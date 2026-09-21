@@ -10,14 +10,14 @@ main.py can assert on it before predicting.
 import numpy as np
 import joblib
 from sklearn.linear_model import LogisticRegression
-from config_submission import RAMI, ORDINE, META_C
+from config import RAMI, ORDINE, META_C
 
 FEAT = {1.5: np.load("feat6_mm1_5.npz"), 2.5: np.load("feat6_mm2_5.npz")}
 y = FEAT[1.5]["y"]
 
 for nome in ORDINE:
     r = RAMI[nome]
-    if r["tipo"] != "feat":                                # CNNs come from train_crop2.py
+    if r["tipo"] != "feat":                                # CNNs come from train_cnn.py
         continue
     X = FEAT[r["scala"]]["FEAT"][:, :r["n_feature"]]
     m = r["crea"]()
