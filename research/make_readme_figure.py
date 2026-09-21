@@ -1,9 +1,9 @@
 """Generate every image in docs/, in light and dark variants from one source so
 they cannot drift apart.
 
+  mark-*.svg       the header mark: the two patterns the model tells apart
   transfer-*.svg   what cross-validation promised versus what the leaderboard
                    delivered, for the three changes measured on both
-  banner-*.svg     README header
   social-*.svg     1280x640 card for GitHub's social preview
 
 Colours come from the reference categorical palette; every pair used clears 3:1
@@ -156,7 +156,7 @@ def social(modo, W=1280, H=640):
 if __name__ == "__main__":
     os.makedirs("docs", exist_ok=True)
     for modo in TEMA:
-        for nome, contenuto in (("transfer", figura(modo)), ("banner", banner(modo)),
+        for nome, contenuto in (("transfer", figura(modo)), ("mark", banner(modo)),
                                 ("social", social(modo))):
             percorso = os.path.join("docs", f"{nome}-{modo}.svg")
             open(percorso, "w", encoding="utf-8", newline="\n").write(contenuto)
