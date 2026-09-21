@@ -1,9 +1,19 @@
-"""Generate the README figure: what cross-validation promised versus what the
-leaderboard delivered, for the three changes measured on both.
+"""Generate every image in docs/, in light and dark variants from one source so
+they cannot drift apart.
 
-Light and dark variants come from this one source so they cannot drift apart.
-Colours are slots 1 and 2 of the reference categorical palette; both clear 3:1
-against their own surface (4.30 and 3.12 light, 4.79 and 4.48 dark).
+  transfer-*.svg   what cross-validation promised versus what the leaderboard
+                   delivered, for the three changes measured on both
+  banner-*.svg     README header
+  social-*.svg     1280x640 card for GitHub's social preview
+
+Colours come from the reference categorical palette; every pair used clears 3:1
+against its own surface (4.30 and 3.12 light, 4.79 and 4.48 dark).
+
+GitHub's social preview upload accepts PNG or JPG, not SVG. To rasterise without
+adding a dependency, headless Edge will do it:
+
+    msedge --headless=new --disable-gpu --screenshot=docs/social-preview.png \
+           --window-size=1280,640 file:///<abs-path>/docs/social-light.svg
 """
 import os
 
