@@ -17,6 +17,9 @@ L = dict(num_leaves=15, reg_lambda=10.0, colsample_bytree=0.2, subsample=0.7,
 
 
 def _gb(d, i):
+    # Unused: two HistGradientBoosting branches were dropped when pruning the ensemble
+    # showed they changed nothing. Left in place because this file is the artefact that
+    # ran in the competition container, and fidelity to that matters more than tidiness.
     return HistGradientBoostingClassifier(max_depth=d, learning_rate=0.05,
                                           max_iter=i, l2_regularization=1.0, random_state=0)
 
