@@ -1,7 +1,9 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/mark-dark.svg">
-  <img src="docs/mark-light.svg" width="560" alt="Schematic of an axial DaT SPECT slice. On the left, normal uptake traces a comma on each side of the midline. On the right, reduced uptake leaves only a dot.">
-</picture>
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/mark-dark.svg">
+    <img src="docs/mark-light.svg" width="480" alt="Schematic of an axial DaT SPECT slice. On the left, normal uptake traces a comma on each side of the midline. On the right, reduced uptake leaves only a dot.">
+  </picture>
+</p>
 
 # DaT Parkinson's Challenge — 53rd of 378
 
