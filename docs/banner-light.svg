@@ -1,12 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" width="1200" height="300" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' role="img" aria-label="DaT Parkinson's Challenge. Schematic of a DaT SPECT slice: normal uptake traces a comma on each side of the midline, reduced uptake leaves only a dot.">
-<rect width="1200" height="300" fill="#fcfcfb"/>
-<text x="64" y="120" font-size="40" font-weight="600" fill="#0b0b0b">DaT Parkinson&#8217;s Challenge</text>
-<text x="64" y="158" font-size="18" fill="#52514e">Parkinsonian syndrome from 3D SPECT brain scans</text>
-<text x="64" y="192" font-size="15" fill="#898781">53rd of 378 &#183; private log loss 0.3008 &#183; trained entirely on CPU</text>
-<circle cx="830" cy="140" r="72" fill="none" stroke="#e1e0d9" stroke-width="2"/>
-<path d="M814,114 Q785,136 814,160" fill="none" stroke="#2a78d6" stroke-width="13" stroke-linecap="round"/><path d="M846,114 Q875,136 846,160" fill="none" stroke="#2a78d6" stroke-width="13" stroke-linecap="round"/>
-<text x="830" y="242" font-size="14" fill="#898781" text-anchor="middle">normal uptake</text>
-<circle cx="1030" cy="140" r="72" fill="none" stroke="#e1e0d9" stroke-width="2"/>
-<circle cx="1004" cy="124" r="7.5" fill="#9ec5f4"/><circle cx="1056" cy="124" r="7.5" fill="#9ec5f4"/>
-<text x="1030" y="242" font-size="14" fill="#898781" text-anchor="middle">reduced uptake</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 230" width="900" height="230" role="img" aria-label="Schematic of an axial DaT SPECT slice. On the left, normal uptake traces a comma on each side of the midline. On the right, reduced uptake leaves only a dot.">
+<circle cx="355" cy="115" r="72" fill="none" stroke="#898781" stroke-width="1.5" opacity="0.55"/>
+<path d="M339,89 Q310,111 339,135" fill="none" stroke="#2a78d6" stroke-width="13" stroke-linecap="round"/><path d="M371,89 Q400,111 371,135" fill="none" stroke="#2a78d6" stroke-width="13" stroke-linecap="round"/>
+<circle cx="545" cy="115" r="72" fill="none" stroke="#898781" stroke-width="1.5" opacity="0.55"/>
+<circle cx="519" cy="99" r="7.5" fill="#9ec5f4"/><circle cx="571" cy="99" r="7.5" fill="#9ec5f4"/>
 </svg>

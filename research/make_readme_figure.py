@@ -112,25 +112,21 @@ def striato(cx, cy, colore, ridotto):
     return "".join(p)
 
 
-def banner(modo, W=1200, H=300):
+def banner(modo, W=900, H=230):
+    """The header mark: the two patterns the model has to tell apart, and nothing else.
+
+    No text and no background — the outline colour clears 3:1 on both surfaces, so the
+    mark sits on the page rather than on a card of its own. What it means is carried by
+    the alt text and by the sentence under it.
+    """
     t = TEMA[modo]
     o = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" '
-         f'font-family=\'{FONT}\' role="img" aria-label="DaT Parkinson\'s Challenge. Schematic of a '
-         f'DaT SPECT slice: normal uptake traces a comma on each side of the midline, reduced uptake '
-         f'leaves only a dot.">',
-         f'<rect width="{W}" height="{H}" fill="{t["surface"]}"/>',
-         f'<text x="64" y="120" font-size="40" font-weight="600" fill="{t["ink"]}">'
-         f'DaT Parkinson&#8217;s Challenge</text>',
-         f'<text x="64" y="158" font-size="18" fill="{t["second"]}">'
-         f'Parkinsonian syndrome from 3D SPECT brain scans</text>',
-         f'<text x="64" y="192" font-size="15" fill="{t["muted"]}">'
-         f'53rd of 378 &#183; private log loss 0.3008 &#183; trained entirely on CPU</text>']
-
-    for cx, ridotto, didascalia in ((830, False, "normal uptake"), (1030, True, "reduced uptake")):
-        o.append(f'<circle cx="{cx}" cy="140" r="72" fill="none" stroke="{t["grid"]}" stroke-width="2"/>')
-        o.append(striato(cx, 140, t["debole"] if ridotto else t["forte"], ridotto))
-        o.append(f'<text x="{cx}" y="242" font-size="14" fill="{t["muted"]}" '
-                 f'text-anchor="middle">{didascalia}</text>')
+         f'role="img" aria-label="Schematic of an axial DaT SPECT slice. On the left, normal uptake '
+         f'traces a comma on each side of the midline. On the right, reduced uptake leaves only a dot.">']
+    for cx, ridotto in ((355, False), (545, True)):
+        o.append(f'<circle cx="{cx}" cy="115" r="72" fill="none" stroke="{t["muted"]}" '
+                 f'stroke-width="1.5" opacity="0.55"/>')
+        o.append(striato(cx, 115, t["debole"] if ridotto else t["forte"], ridotto))
     o.append("</svg>")
     return "\n".join(o)
 

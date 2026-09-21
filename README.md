@@ -1,6 +1,6 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/banner-dark.svg">
-  <img src="docs/banner-light.svg" alt="DaT Parkinson's Challenge — Parkinsonian syndrome from 3D SPECT brain scans. 53rd of 378, private log loss 0.3008, trained entirely on CPU. Schematic: normal uptake traces a comma on each side of the midline, reduced uptake leaves only a dot.">
+  <img src="docs/banner-light.svg" width="560" alt="Schematic of an axial DaT SPECT slice. On the left, normal uptake traces a comma on each side of the midline. On the right, reduced uptake leaves only a dot.">
 </picture>
 
 # DaT Parkinson's Challenge — 53rd of 378
