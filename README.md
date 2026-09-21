@@ -341,8 +341,13 @@ MIT — see [LICENSE](LICENSE).
 
 ---
 
-**Jonathan Manca**
+**Jonathan Manca** · [LinkedIn](https://www.linkedin.com/in/jonathan-manca)
 
-Two months, one GPU short, and a preprocessing bug found in week nine. If you are
-working on DaT SPECT or on multi-centre medical imaging generally, findings #1 and #3
-are the parts worth your time.
+I built this to learn — how a medical image becomes a calibrated probability, and how to
+tell whether a change to a model is real or only looks real. The competition supplied
+what a tutorial cannot: a hidden test set, indifferent to how convincing the reasoning
+behind a change happened to be. Most of what is written above I learned by getting it
+wrong first, which is why the sections on what failed run longer than the one on what
+worked.
+
+If any of it saves someone a week, it was worth writing down.
