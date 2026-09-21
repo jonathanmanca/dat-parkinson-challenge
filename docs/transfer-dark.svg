@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 366" width="800" height="366" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' role="img" aria-label="Log loss improvement predicted by cross-validation versus delivered on the leaderboard, for three changes.">
+<rect width="800" height="366" fill="#1a1a19"/>
+<text x="28" y="38" font-size="17" font-weight="600" fill="#ffffff">What cross-validation promised, and what arrived</text>
+<text x="28" y="60" font-size="13" fill="#c3c2b7">Log loss improvement per change, in thousandths. Longer is better.</text>
+<rect x="28" y="80" width="10" height="10" rx="2" fill="#3987e5"/>
+<text x="44" y="89" font-size="12" fill="#c3c2b7">predicted by cross-validation</text>
+<rect x="264" y="80" width="10" height="10" rx="2" fill="#d95926"/>
+<text x="280" y="89" font-size="12" fill="#c3c2b7">delivered on the leaderboard</text>
+<line x1="290.0" y1="108" x2="290.0" y2="316" stroke="#2c2c2a" stroke-width="1"/>
+<text x="290.0" y="332" font-size="11" fill="#898781" text-anchor="middle">0</text>
+<line x1="423.33333333333337" y1="108" x2="423.33333333333337" y2="316" stroke="#2c2c2a" stroke-width="1"/>
+<text x="423.33333333333337" y="332" font-size="11" fill="#898781" text-anchor="middle">5</text>
+<line x1="556.6666666666667" y1="108" x2="556.6666666666667" y2="316" stroke="#2c2c2a" stroke-width="1"/>
+<text x="556.6666666666667" y="332" font-size="11" fill="#898781" text-anchor="middle">10</text>
+<line x1="690.0" y1="108" x2="690.0" y2="316" stroke="#2c2c2a" stroke-width="1"/>
+<text x="690.0" y="332" font-size="11" fill="#898781" text-anchor="middle">15</text>
+<line x1="290" y1="108" x2="290" y2="316" stroke="#383835" stroke-width="1"/>
+<text x="274" y="141" font-size="13" fill="#ffffff" text-anchor="end">Larger CNN + stronger augmentation</text>
+<path d="M290,118 H659.3333333333334 A4,4 0 0 1 663.3333333333334,122 V132 A4,4 0 0 1 659.3333333333334,136 H290 Z" fill="#3987e5"/>
+<text x="672.3333333333334" y="131" font-size="12" font-weight="600" fill="#c3c2b7">14.0</text>
+<path d="M290,138 H334.0 A4,4 0 0 1 338.0,142 V152 A4,4 0 0 1 334.0,156 H290 Z" fill="#d95926"/>
+<text x="347.0" y="151" font-size="12" font-weight="600" fill="#c3c2b7">1.8</text>
+<text x="274" y="215" font-size="13" fill="#ffffff" text-anchor="end">Test-time augmentation</text>
+<path d="M290,192 H486.0 A4,4 0 0 1 490.0,196 V206 A4,4 0 0 1 486.0,210 H290 Z" fill="#3987e5"/>
+<text x="499.0" y="205" font-size="12" font-weight="600" fill="#c3c2b7">7.5</text>
+<path d="M290,212 H294.0 A4,4 0 0 1 298.0,216 V226 A4,4 0 0 1 294.0,230 H290 Z" fill="#d95926"/>
+<text x="307.0" y="225" font-size="12" font-weight="600" fill="#c3c2b7">0.3</text>
+<text x="274" y="289" font-size="13" fill="#ffffff" text-anchor="end">Head-centred crop *</text>
+<path d="M290,266 H472.6666666666667 A4,4 0 0 1 476.6666666666667,270 V280 A4,4 0 0 1 472.6666666666667,284 H290 Z" fill="#3987e5"/>
+<text x="485.6666666666667" y="279" font-size="12" font-weight="600" fill="#c3c2b7">7.0</text>
+<path d="M290,286 H726.0 A4,4 0 0 1 730.0,290 V300 A4,4 0 0 1 726.0,304 H290 Z" fill="#d95926"/>
+<text x="739.0" y="299" font-size="12" font-weight="600" fill="#c3c2b7">16.5</text>
+<text x="28" y="352" font-size="11" fill="#898781">* bundled with three other changes, so its gain cannot be attributed to the crop fix alone.</text>
+</svg>

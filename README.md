@@ -1,5 +1,12 @@
 # DaT Parkinson's Challenge — 53rd of 378
 
+![python](https://img.shields.io/badge/python-3.12-blue?style=flat-square&logo=python&logoColor=white)
+![pytorch](https://img.shields.io/badge/pytorch-2.12-ee4c2c?style=flat-square&logo=pytorch&logoColor=white)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-1.8-f7931e?style=flat-square&logo=scikitlearn&logoColor=white)
+![lightgbm](https://img.shields.io/badge/lightgbm-4.6-2a78d6?style=flat-square)
+![hardware](https://img.shields.io/badge/hardware-CPU%20only-lightgrey?style=flat-square)
+![license](https://img.shields.io/badge/license-MIT-green?style=flat-square)
+
 Predict, from a 3D DaT SPECT brain scan, the probability that it is pathological rather
 than normal. Run by [DrivenData](https://www.drivendata.org/competitions/311/dat-parkinsons-challenge/)
 and scored by log loss, on 1362 training scans from 10 French hospitals.
@@ -16,6 +23,16 @@ and scored by log loss, on 1362 training scans from 10 French hospitals.
 Two constraints shaped everything here. Training ran entirely on CPU, which meant about
 one experiment per night. And **not a single scan was ever opened** — see below — which
 turned out to matter more than the missing GPU.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/transfer-dark.svg">
+  <img src="docs/transfer-light.svg" alt="Bar chart comparing, for three changes, the log loss improvement predicted by cross-validation against the improvement actually delivered on the leaderboard. Larger CNN plus stronger augmentation: 14.0 predicted, 1.8 delivered. Test-time augmentation: 7.5 predicted, 0.3 delivered. Head-centred crop, bundled with three other changes: 7.0 predicted, 16.5 delivered.">
+</picture>
+
+Three changes were measured on both sides. Two were refinements of a model that already
+worked and delivered almost nothing; the one that contained a data-correctness fix
+delivered more than it promised. That asymmetry is [finding #2](#2-refinements-transferred-at-10-a-correctness-fix-did-not),
+and it is the thing I would most want to have known at the start.
 
 **Contents** · [AI assistance](#on-ai-assistance) · [Key findings](#key-findings) ·
 [Method](#method) · [Submissions](#submission-history) · [What worked](#what-worked) ·
