@@ -1,3 +1,8 @@
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/banner-dark.svg">
+  <img src="docs/banner-light.svg" alt="DaT Parkinson's Challenge — Parkinsonian syndrome from 3D SPECT brain scans. 53rd of 378, private log loss 0.3008, trained entirely on CPU. Schematic: normal uptake traces a comma on each side of the midline, reduced uptake leaves only a dot.">
+</picture>
+
 # DaT Parkinson's Challenge — 53rd of 378
 
 ![python](https://img.shields.io/badge/python-3.12-blue?style=flat-square&logo=python&logoColor=white)
@@ -358,7 +363,7 @@ MIT — see [LICENSE](LICENSE).
 
 ---
 
-**Jonathan Manca** · [LinkedIn](https://www.linkedin.com/in/jonathan-manca)
+**Jonathan Manca** &nbsp; [![LinkedIn](https://img.shields.io/badge/LinkedIn-jonathan--manca-0a66c2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/jonathan-manca)
 
 I built this to learn — how a medical image becomes a calibrated probability, and how to
 tell whether a change to a model is real or only looks real. The competition supplied

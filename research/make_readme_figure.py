@@ -16,9 +16,11 @@ MASSIMO, TACCHE = 18.0, [0, 5, 10, 15]
 
 TEMA = {
     "light": dict(surface="#fcfcfb", ink="#0b0b0b", second="#52514e", muted="#898781",
-                  grid="#e1e0d9", axis="#c3c2b7", s1="#2a78d6", s2="#eb6834"),
+                  grid="#e1e0d9", axis="#c3c2b7", s1="#2a78d6", s2="#eb6834",
+                  forte="#2a78d6", debole="#9ec5f4"),
     "dark":  dict(surface="#1a1a19", ink="#ffffff", second="#c3c2b7", muted="#898781",
-                  grid="#2c2c2a", axis="#383835", s1="#3987e5", s2="#d95926"),
+                  grid="#2c2c2a", axis="#383835", s1="#3987e5", s2="#d95926",
+                  forte="#3987e5", debole="#256abf"),
 }
 
 W, H = 800, 366
@@ -82,9 +84,74 @@ def figura(modo):
     return "\n".join(o)
 
 
+def striato(cx, cy, colore, ridotto):
+    """Schematic of one axial slice through the striatum.
+
+    Healthy uptake traces a comma on each side; as the posterior putamen loses
+    binding the tail disappears and what is left reads as a dot. That contrast is
+    the whole classification problem, and it is what a reader looks for.
+    Drawn from scratch — these are shapes, not data.
+    """
+    p = []
+    for s in (-1, 1):                                  # one per hemisphere, mirrored
+        if ridotto:
+            p.append(f'<circle cx="{cx + s*26}" cy="{cy-16}" r="7.5" fill="{colore}"/>')
+        else:
+            p.append(f'<path d="M{cx + s*16},{cy-26} Q{cx + s*45},{cy-4} {cx + s*16},{cy+20}" '
+                     f'fill="none" stroke="{colore}" stroke-width="13" stroke-linecap="round"/>')
+    return "".join(p)
+
+
+def banner(modo, W=1200, H=300):
+    t = TEMA[modo]
+    o = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" '
+         f'font-family=\'{FONT}\' role="img" aria-label="DaT Parkinson\'s Challenge. Schematic of a '
+         f'DaT SPECT slice: normal uptake traces a comma on each side of the midline, reduced uptake '
+         f'leaves only a dot.">',
+         f'<rect width="{W}" height="{H}" fill="{t["surface"]}"/>',
+         f'<text x="64" y="120" font-size="40" font-weight="600" fill="{t["ink"]}">'
+         f'DaT Parkinson&#8217;s Challenge</text>',
+         f'<text x="64" y="158" font-size="18" fill="{t["second"]}">'
+         f'Parkinsonian syndrome from 3D SPECT brain scans</text>',
+         f'<text x="64" y="192" font-size="15" fill="{t["muted"]}">'
+         f'53rd of 378 &#183; private log loss 0.3008 &#183; trained entirely on CPU</text>']
+
+    for cx, ridotto, didascalia in ((830, False, "normal uptake"), (1030, True, "reduced uptake")):
+        o.append(f'<circle cx="{cx}" cy="140" r="72" fill="none" stroke="{t["grid"]}" stroke-width="2"/>')
+        o.append(striato(cx, 140, t["debole"] if ridotto else t["forte"], ridotto))
+        o.append(f'<text x="{cx}" y="242" font-size="14" fill="{t["muted"]}" '
+                 f'text-anchor="middle">{didascalia}</text>')
+    o.append("</svg>")
+    return "\n".join(o)
+
+
+def social(modo, W=1280, H=640):
+    """1280x640 card for GitHub's social preview, the thumbnail shown when the link
+    is shared. Same elements as the banner, laid out for a square-ish crop."""
+    t = TEMA[modo]
+    o = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" '
+         f'font-family=\'{FONT}\' role="img" aria-label="DaT Parkinson\'s Challenge, 53rd of 378.">',
+         f'<rect width="{W}" height="{H}" fill="{t["surface"]}"/>',
+         f'<text x="{W//2}" y="150" font-size="52" font-weight="600" fill="{t["ink"]}" '
+         f'text-anchor="middle">DaT Parkinson&#8217;s Challenge</text>',
+         f'<text x="{W//2}" y="196" font-size="22" fill="{t["second"]}" text-anchor="middle">'
+         f'Parkinsonian syndrome from 3D SPECT brain scans</text>']
+    for cx, ridotto, didascalia in ((520, False, "normal uptake"), (760, True, "reduced uptake")):
+        o.append(f'<circle cx="{cx}" cy="390" r="86" fill="none" stroke="{t["grid"]}" stroke-width="2"/>')
+        o.append(striato(cx, 390, t["debole"] if ridotto else t["forte"], ridotto))
+        o.append(f'<text x="{cx}" y="510" font-size="16" fill="{t["muted"]}" '
+                 f'text-anchor="middle">{didascalia}</text>')
+    o.append(f'<text x="{W//2}" y="578" font-size="19" fill="{t["second"]}" text-anchor="middle">'
+             f'53rd of 378 &#183; private log loss 0.3008 &#183; trained entirely on CPU</text>')
+    o.append("</svg>")
+    return "\n".join(o)
+
+
 if __name__ == "__main__":
     os.makedirs("docs", exist_ok=True)
     for modo in TEMA:
-        percorso = os.path.join("docs", f"transfer-{modo}.svg")
-        open(percorso, "w", encoding="utf-8", newline="\n").write(figura(modo))
-        print(f"wrote {percorso}")
+        for nome, contenuto in (("transfer", figura(modo)), ("banner", banner(modo)),
+                                ("social", social(modo))):
+            percorso = os.path.join("docs", f"{nome}-{modo}.svg")
+            open(percorso, "w", encoding="utf-8", newline="\n").write(contenuto)
+            print(f"wrote {percorso}")

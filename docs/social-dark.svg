@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" width="1280" height="640" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' role="img" aria-label="DaT Parkinson's Challenge, 53rd of 378.">
+<rect width="1280" height="640" fill="#1a1a19"/>
+<text x="640" y="150" font-size="52" font-weight="600" fill="#ffffff" text-anchor="middle">DaT Parkinson&#8217;s Challenge</text>
+<text x="640" y="196" font-size="22" fill="#c3c2b7" text-anchor="middle">Parkinsonian syndrome from 3D SPECT brain scans</text>
+<circle cx="520" cy="390" r="86" fill="none" stroke="#2c2c2a" stroke-width="2"/>
+<path d="M504,364 Q475,386 504,410" fill="none" stroke="#3987e5" stroke-width="13" stroke-linecap="round"/><path d="M536,364 Q565,386 536,410" fill="none" stroke="#3987e5" stroke-width="13" stroke-linecap="round"/>
+<text x="520" y="510" font-size="16" fill="#898781" text-anchor="middle">normal uptake</text>
+<circle cx="760" cy="390" r="86" fill="none" stroke="#2c2c2a" stroke-width="2"/>
+<circle cx="734" cy="374" r="7.5" fill="#256abf"/><circle cx="786" cy="374" r="7.5" fill="#256abf"/>
+<text x="760" y="510" font-size="16" fill="#898781" text-anchor="middle">reduced uptake</text>
+<text x="640" y="578" font-size="19" fill="#c3c2b7" text-anchor="middle">53rd of 378 &#183; private log loss 0.3008 &#183; trained entirely on CPU</text>
+</svg>
