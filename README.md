@@ -5,7 +5,7 @@
   </picture>
 </p>
 
-# DaT Parkinson's Challenge — 53rd of 378
+# DaT Parkinson's Challenge — 48th out of 378
 
 ![python](https://img.shields.io/badge/python-3.12-blue?style=flat-square&logo=python&logoColor=white)
 ![pytorch](https://img.shields.io/badge/pytorch-2.12-ee4c2c?style=flat-square&logo=pytorch&logoColor=white)
