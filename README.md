@@ -5,7 +5,7 @@
   </picture>
 </p>
 
-# DaT Parkinson's Challenge — 48th out of 378
+# DaT Parkinson's Challenge — 48th of 373
 
 ![python](https://img.shields.io/badge/python-3.12-blue?style=flat-square&logo=python&logoColor=white)
 ![pytorch](https://img.shields.io/badge/pytorch-2.12-ee4c2c?style=flat-square&logo=pytorch&logoColor=white)
@@ -20,10 +20,10 @@ and scored by log loss, on 1362 training scans from 10 French hospitals.
 
 | | |
 |---|---|
-| **Final rank** | **53 / 378** ranked participants (top 14%) |
+| **Final rank** | **48 / 373** ranked participants (top 13%) |
 | **Private log loss** | **0.3008** &nbsp;·&nbsp; AUROC 0.9410 |
 | Best public | 0.2691, from 4 submissions |
-| Winner / 3rd place (private) | 0.2532 / 0.2708 |
+| [Prize winners](https://github.com/drivendataorg/dat-parkinsons) (private) | 0.2532 · 0.2731 · 0.2732 |
 | Baseline (constant prediction) | 0.688 |
 | Hardware | 8 CPU cores, ~100 h of compute, no GPU, no cloud |
 

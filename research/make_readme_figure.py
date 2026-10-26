@@ -136,7 +136,7 @@ def social(modo, W=1280, H=640):
     is shared. Same elements as the banner, laid out for a square-ish crop."""
     t = TEMA[modo]
     o = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" '
-         f'font-family=\'{FONT}\' role="img" aria-label="DaT Parkinson\'s Challenge, 53rd of 378.">',
+         f'font-family=\'{FONT}\' role="img" aria-label="DaT Parkinson\'s Challenge, 48th of 373.">',
          f'<rect width="{W}" height="{H}" fill="{t["surface"]}"/>',
          f'<text x="{W//2}" y="150" font-size="52" font-weight="600" fill="{t["ink"]}" '
          f'text-anchor="middle">DaT Parkinson&#8217;s Challenge</text>',
@@ -148,7 +148,7 @@ def social(modo, W=1280, H=640):
         o.append(f'<text x="{cx}" y="510" font-size="16" fill="{t["muted"]}" '
                  f'text-anchor="middle">{didascalia}</text>')
     o.append(f'<text x="{W//2}" y="578" font-size="19" fill="{t["second"]}" text-anchor="middle">'
-             f'53rd of 378 &#183; private log loss 0.3008 &#183; trained entirely on CPU</text>')
+             f'48th of 373 &#183; private log loss 0.3008 &#183; trained entirely on CPU</text>')
     o.append("</svg>")
     return "\n".join(o)
 
